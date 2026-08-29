@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
+        h1 {
+            text-align: center;
+            font-family: cursive;
+            color: darkolivegreen;
+            background-color: chocolate;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: cursive;
+            color:darkolivegreen;
+            border-bottom: 3px solid darkolivegreen;
+            padding-bottom: 6px;
+            margin-top: 30px;
+            background-color: chocolate;
+        }    
         body {
          text-align: center;
          margin: 0px;
@@ -15,13 +34,53 @@
             justify-content: center;
             align-items: center;
         }
-            
-        
+
+        #theme-btn {
+            font-family: cursive;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff8e7;
+            background: linear-gradient(180deg, #4a7c3f 0%, #2f5325 100%);
+            border: 3px solid #1e3a15;
+            border-radius: 30px;
+            padding: 12px 22px;
+            margin: 16px auto;
+            display: block;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #1e3a15, 0 6px 8px rgba(0,0,0,0.3);
+            transition: transform 0.1s ease;
+        }
+
+        #theme-btn:hover {
+            background: linear-gradient(180deg, #588f4a 0%, #3a6630 100%);
+        }
+
+        #theme-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #1e3a15, 0 2px 4px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; font-family: cursive; color: darkolivegreen ; background-color: chocolate;">Lost World</h1>
-    <h3 style="color: forestgreen;font-family: cursive;"> Featured Dinosaurs </h3>
+    <button id="theme-btn" onclick="playTheme()">
+        🦖 Play Theme Music 🦴
+    </button>
+    <iframe id="bgmusic"
+        width="1" height="1"
+        style="position:absolute; opacity:0; pointer-events:none; border:0;"
+        allow="autoplay; encrypted-media">
+    </iframe>
+
+    <script>
+        function playTheme() {
+            var frame = document.getElementById('bgmusic');
+            frame.src = 'https://www.youtube.com/embed/8xwnpyIOpTY?autoplay=1&si=Dprcs9lxcMHQFSid';
+            document.getElementById('theme-btn').textContent = '🦖 Theme Music Playing 🎵';
+        }
+    </script>
+
+    <h1>Lost World</h1>
+    <h3> Featured Dinosaurs </h3>
     <div>
         <table border="4"> 
             <tr>
@@ -52,6 +111,47 @@
         </table>
     </div>
     <img src="https://www.centreofexcellence.com/media/image/1f/22/1e94f372fea773b6cdde7e47e914.jpeg" width="500"> 
-    <p> These are the different time periods the dinosaurs lived in.</p>
+    </p>
+    </section>
+<img src = "https://www.savalli.us/BIO370/Anatomy/AnatomyImages/TriceratopsSkeletonLabel.jpg" id="fossils" width = "634">
+        <h2> 🦴 Dinosaur Fossils</h2>
+        <p> Dinosaur fossils are more than just bones. Scientists have also discovered fossilized skin, scales, feathers, organs, and other soft tissues. These discoveries give scientists clues about what dinosaurs looked like and how their bodies worked.
+
+Some fossils have even preserved evidence of dinosaur colors. Scientists have studied tiny structures called melanosomes, which can help reveal the colors of feathers and scales. This has allowed researchers to create possible color reconstructions of dinosaurs such as Sinosauropteryx and Psittacosaurus.
+
+Scientists have also discovered fossils containing parts of internal organs. For example, a fossil of Scipionyx preserved parts of its intestines, liver, muscles, and windpipe. These rare discoveries help us understand dinosaurs in much greater detail. >
+    <section>
+        <h2> 🌋 The Beginning of Dinosaurs</h2>
+        <p> Dinosaurs first appeared during the Triassic Period, roughly 230 million years ago. They evolved from earlier archosaur ancestors and were initially small animals, many of which walked on two legs. At first, dinosaurs were not the dominant animals on Earth. They lived alongside many other reptiles and early animals. Over millions of years, several of these competing groups disappeared, allowing dinosaurs to become much more successful.</p>
+    </section>
+
+    <section>
+        <h2> 🌎 Dinosaurs Spread Around the World</h2>
+        <p> During the early part of the dinosaur age, Earth's continents were joined together as a giant landmass called Pangaea. This allowed dinosaurs to spread across large areas.
+
+As Pangaea slowly broke apart, dinosaur groups in different parts of the world began to evolve in different ways. North America, South America, Asia, Africa, Europe, and Australia each developed their own unique dinosaur communities.
+
+Different dinosaurs also developed different ways of eating. Some herbivores evolved specialized teeth for grinding plants, while predators developed powerful jaws and teeth for hunting.</p>
+
+    </section>
+    <h2> 🌸 The Cretaceous Period</h2>
+    <p> During the Cretaceous Period, dinosaurs became extremely diverse. Tyrannosaurs, ceratopsians, hadrosaurs, ankylosaurs, and many other groups lived across the planet.
+
+Flowering plants also became increasingly common during this time, changing the environments where dinosaurs lived and providing new food sources for herbivores.</p>
+
+    </section>
+
+    <section> 
+    <h2>☄️ The End of the Dinosaurs</h2>
+
+ 
+    <p>About 66 million years ago, a major extinction event occurred at the end of the Cretaceous Period. Most dinosaur groups disappeared.
+
+However, birds survived. Modern birds are descendants of theropod dinosaurs, meaning that dinosaurs are not completely extinct—they still live among us today in the form of birds.</p>
+    </section>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/pjoQdz0nxf4?si=7tvkM7A5Lr7YHUBF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p>This video gives a idea on idea on how the dinosaurs actually died.</p>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/6GdzweXvNEqpHJ0WXHha4E/video?utm_source=generator&si=7e82f3f341104c86" width="624" height="351" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    
 </body>
 </html>

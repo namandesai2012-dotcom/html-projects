@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- This tells phones/tablets to render the page at their real width instead of zoomed-out desktop size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost World | Dinosaur Website</title>
+
+    <style>
+        /*
+            =====================================================
+            WHY CSS LIVES HERE INSTEAD OF ON EVERY TAG
+            =====================================================
+            You could write style="color:red" on 50 different tags,
+            but if you ever want to change that red, you'd have to
+            hunt down all 50. Writing CSS once here, and pointing
+            multiple tags at it with a class, means "change it in
+            one place, it updates everywhere." This is the single
+            biggest habit that separates beginner HTML from
+            maintainable HTML.
+
+            TABLE OF CONTENTS (search these numbers with Ctrl+F):
+            1. Global / body        6. Fun Fact callout boxes
+            2. Header               7. Dinosaur table
+            3. Navigation           8. Images & figures
+            4. Layout (main)        9. SVG diagrams
+            5. Section cards       10. Interactive reveal cards
+                                    11. Footer
+        */
+
+        /* ---------- 1. GLOBAL / BODY ---------- */
+        * {
+            /* box-sizing: border-box means padding/border are counted
+               INSIDE an element's width, instead of adding to it.
+               Without this, elements quietly get wider than you expect
+               the moment you add padding. This one line prevents a LOT
+               of "why is my layout broken" moments. */
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            background-color: burlywood;
+            font-family: Arial, sans-serif;
+            line-height: 1.6; /* space between lines of text — easier to read */
+            color: #2f2313;
+        }
+
+        /* ---------- 2. HEADER ---------- */
+        header {
+            background-color: chocolate;
+            text-align: center;
+            padding: 28px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .title {
+            color: darkolivegreen;
+            font-family: cursive;
+            margin: 0;
+            font-size: 2.6rem;
+            /* text-shadow gives the heading a little "carved stone" depth
+               without needing an image */
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+        }
+        .subtitle {
+            color: white;
+            margin: 6px 0 0;
+        }
+
+        /* ---------- 3. NAVIGATION ---------- */
+        nav {
+            background-color: darkolivegreen;
+            padding: 10px;
+            text-align: center;
+            /* sticky keeps the nav visible while you scroll, so jumping
+               between sections doesn't mean scrolling all the way back up */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease; /* smooths the hover effect */
+        }
+        nav a:hover {
+            background-color: rgba(255,255,255,0.15);
+            text-decoration: underline;
+        }
+
+        /* ---------- 4. LAYOUT ---------- */
+        main {
+            max-width: 1000px;
+            margin: auto; /* centers the block horizontally */
+            padding: 20px;
+        }
+
+        /* ---------- 5. SECTION CARDS ---------- */
+        section {
+            background-color: wheat;
+            padding: 24px;
+            margin: 30px 0;
+            border: 2px solid darkolivegreen;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* scroll-margin-top stops the sticky nav from covering the
+               top of a section when you jump to it via the nav links */
+            scroll-margin-top: 60px;
+        }
+        section h2 {
+            color: darkolivegreen;
+            font-family: cursive;
+            margin-top: 0;
+        }
+
+        /* ---------- 6. FUN FACT CALLOUT BOXES ---------- */
+        /* A reusable "badge" component: give any <p> this class and it
+           turns into a highlighted fact box. This is the same trick as
+           the .title class above — one class, reused everywhere. */
+        .fun-fact {
+            background-color: #fff8e7;
+            border-left: 5px solid chocolate;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+        .fun-fact strong {
+            color: chocolate;
+        }
+
+        /* ---------- 7. DINOSAUR TABLE ---------- */
+        .dinosaur-table {
+            width: 100%;
+            border-collapse: collapse; /* makes double borders merge into one line */
+            background-color: white;
+        }
+        .dinosaur-table th,
+        .dinosaur-table td {
+            border: 2px solid darkolivegreen;
+            padding: 10px;
+            text-align: center;
+        }
+        .dinosaur-table th {
+            background-color: darkolivegreen;
+            color: white;
+        }
+        .dinosaur-table tr:nth-child(even) {
+            /* :nth-child(even) is a pseudo-class — it styles every 2nd
+               row automatically, no need to add a class by hand to each one */
+            background-color: beige;
+        }
+
+        /* ---------- 8. IMAGES & FIGURES ---------- */
+        .dinosaur-image {
+            width: 140px;
+            max-width: 100%; /* never let the image get wider than its cell */
+            border-radius: 8px;
+        }
+        .large-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        figcaption {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ---------- 9. SVG DIAGRAMS ---------- */
+        /* These wrap SVGs I drew directly in the HTML below. Unlike a
+           photo pulled from a random website, an SVG built right into
+           the page can never 404 / go missing — it IS the page. Good
+           to know for anything you don't want to risk breaking. */
+        .diagram-wrap {
+            background-color: white;
+            border: 2px solid darkolivegreen;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 16px 0;
+        }
+        .diagram-wrap svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ---------- 10. INTERACTIVE REVEAL CARDS ---------- */
+        .reveal-card {
+            background-color: white;
+            border: 2px dashed darkolivegreen;
+            border-radius: 8px;
+            padding: 14px;
+            margin: 10px 0;
+            cursor: pointer; /* tells the visitor "you can click this" */
+        }
+        .reveal-card .answer {
+            display: none; /* hidden until JS toggles it — see script at bottom */
+            margin-top: 8px;
+            color: chocolate;
+            font-weight: bold;
+        }
+        .reveal-card.open .answer {
+            display: block;
+        }
+        .reveal-card .prompt::after {
+            content: "  ▸ tap to reveal";
+            font-weight: normal;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        .reveal-card.open .prompt::after {
+            content: "  ▾";
+        }
+
+        /* ---------- 11. FOOTER ---------- */
+        footer {
+            background-color: darkolivegreen;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+        <h1 class="title">Lost World 🦖</h1>
+        <p class="subtitle">Explore the fascinating (and occasionally weird) world of dinosaurs</p>
+    </header>
+
+    <!-- ============ NAVIGATION ============ -->
+    <!-- Each href="#id" jumps to the element with that matching id, further down the page -->
+    <nav>
+        <a href="#dinosaurs">Dinosaurs</a>
+        <a href="#fossils">Fossils</a>
+        <a href="#beginning">Beginning</a>
+        <a href="#world">Spread</a>
+        <a href="#cretaceous">Cretaceous</a>
+        <a href="#extinction">Extinction</a>
+        <a href="#quiz">Quick Quiz</a>
+    </nav>
+
+    <main>
+
+        <!-- ============ FEATURED DINOSAURS ============ -->
+        <section id="dinosaurs">
+            <h2>🦖 Featured Dinosaurs</h2>
+
+            <p class="fun-fact">
+                <strong>Fun fact:</strong> "Dinosaur" means "terrible lizard" — but it's actually a
+                bad name. Dinosaurs aren't lizards at all; they're their own group of reptiles,
+                and they're more closely related to modern birds than to any lizard alive today.
+            </p>
+
+            <table class="dinosaur-table">
+                <caption>Some Famous Prehistoric Animals</caption>
+                <thead>
+                    <tr>
+                        <th>Dinosaur / Animal</th>
+                        <th>Diet</th>
+                        <th>Period</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tyrannosaurus Rex</td>
+                        <td>Carnivore</td>
+                        <td>Cretaceous</td>
+                        <td>
+                            <img class="dinosaur-image"
+                                 src="https://preview.redd.it/is-having-tyrannosaurus-as-your-favorite-dinosaur-looked-v0-01aksr49o0zd1.jpeg?auto=webp&s=a3f633bf5c91b3886d86a7f213165162ea19e19f"
+                                 alt="Tyrannosaurus rex">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Triceratops</td>
+                        <td>Herbivore</td>
+                        <td>Cretaceous</td>
+                        <td>
+                            <img class="dinosaur-image"
+                                 src="https://news.artnet.com/app/news-upload/2025/09/cera-triceratops-phillips-0-1024x576.jpg"
+                                 alt="Triceratops">
+                        </td>
+                    </tr>
+                    <!--
+                        LEARNING NOTE: Pterosaurs are NOT technically dinosaurs — they're a
+                        separate group of flying reptiles that lived alongside them. Keeping
+                        this row is a good reminder that "prehistoric reptile" and "dinosaur"
+                        aren't the same category, even though people mix them up constantly.
+                    -->
+                    <tr>
+                        <td>Pterosaur</td>
+                        <td>Carnivore</td>
+                        <td>Jurassic</td>
+                        <td>
+                            <img class="dinosaur-image"
+                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpLv-08GfvrgECt6zWNEO1whJMmFKwp8seTPSBlocDCfgjEmZhF6ZIUa8J&s=10"
+                                 alt="Pterosaur">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="fun-fact">
+                <strong>Weird but true:</strong> T. rex had a bite force strong enough to crack
+                bone — roughly twice as strong as a hippo's bite and about four times a lion's.
+            </p>
+
+            <!--
+                TEACHING NOTE for you: the three image URLs above are pulled from random
+                websites. That's risky — those sites can rename or delete files any time,
+                and suddenly your image is a broken icon. If any of these ever break, swap
+                the src="..." for a Wikipedia Commons link, which tends to stay stable long-term.
+                This is genuinely how professional sites handle it too: host your own images
+                when it matters, rather than linking someone else's server.
+            -->
+        </section>
+
+        <!-- ============ FOSSILS ============ -->
+        <section id="fossils">
+            <h2>🦴 Dinosaur Fossils</h2>
+            <figure>
+                <img class="large-image"
+                     src="https://www.centreofexcellence.com/media/image/1f/22/1e94f372fea773b6cdde7e47e914.jpeg"
+                     alt="Dinosaur fossil">
+                <figcaption>Fossils can preserve much more than dinosaur bones.</figcaption>
+            </figure>
+
+            <p>
+                Dinosaur fossils are more than just bones. Scientists have also discovered
+                fossilized skin, scales, feathers, and even organs. These rare finds give
+                huge clues about what dinosaurs actually looked like and how their bodies worked.
+            </p>
+
+            <p class="fun-fact">
+                <strong>Fun fact:</strong> Some fossils preserve tiny structures called
+                <em>melanosomes</em>, which store pigment. By studying them under a microscope,
+                scientists can figure out the actual color of a dinosaur's feathers — we're not
+                just guessing when we color dinosaurs in textbooks anymore.
+            </p>
+
+            <p>
+                Fossilization itself is incredibly rare. An animal has to be buried quickly
+                (usually by sediment, mud, or volcanic ash) before it decays or gets eaten,
+                and then the right minerals need to seep in over millions of years and slowly
+                replace the original bone. That's why we only have a tiny fraction of all the
+                dinosaurs that ever lived.
+            </p>
+        </section>
+
+        <!-- ============ BEGINNING OF DINOSAURS ============ -->
+        <section id="beginning">
+            <h2>🌋 The Beginning of Dinosaurs</h2>
+            <p>
+                Dinosaurs first showed up in the Triassic Period, roughly 230 million years ago.
+                They evolved from earlier reptile ancestors called archosaurs, and the first
+                dinosaurs were small — many were about the size of a dog and walked on two legs.
+            </p>
+            <p>
+                They weren't in charge of the planet yet, either. Early dinosaurs shared the
+                world with bigger, scarier reptiles and had to compete for space and food.
+                It took tens of millions of years of evolving before dinosaurs became the
+                dominant land animals on Earth.
+            </p>
+
+            <div class="diagram-wrap">
+                <!-- A simple, hand-built timeline: no external image needed, so it can't break -->
+                <svg viewBox="0 0 700 140" xmlns="http://www.w3.org/2000/svg" role="img"
+                     aria-label="Timeline of the Triassic, Jurassic, and Cretaceous periods">
+                    <line x1="40" y1="70" x2="660" y2="70" stroke="darkolivegreen" stroke-width="4"/>
+
+                    <circle cx="120" cy="70" r="10" fill="chocolate"/>
+                    <text x="120" y="40" text-anchor="middle" font-family="Arial" font-size="14" fill="#2f2313">Triassic</text>
+                    <text x="120" y="100" text-anchor="middle" font-family="Arial" font-size="12" fill="#555">~252–201 mya</text>
+
+                    <circle cx="360" cy="70" r="10" fill="chocolate"/>
+                    <text x="360" y="40" text-anchor="middle" font-family="Arial" font-size="14" fill="#2f2313">Jurassic</text>
+                    <text x="360" y="100" text-anchor="middle" font-family="Arial" font-size="12" fill="#555">~201–145 mya</text>
+
+                    <circle cx="600" cy="70" r="10" fill="chocolate"/>
+                    <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="14" fill="#2f2313">Cretaceous</text>
+                    <text x="600" y="100" text-anchor="middle" font-family="Arial" font-size="12" fill="#555">~145–66 mya</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ============ DINOSAURS AROUND THE WORLD ============ -->
+        <section id="world">
+            <h2>🌎 Dinosaurs Spread Around the World</h2>
+            <p>
+                Early on, all of Earth's continents were fused into one giant landmass called
+                Pangaea. That meant an animal could, in theory, walk from what's now New York
+                to what's now Beijing without ever crossing an ocean — which is exactly how
+                early dinosaurs spread so widely so fast.
+            </p>
+            <p>
+                As Pangaea slowly cracked apart over tens of millions of years, dinosaur
+                populations on different landmasses got cut off from each other and evolved
+                in their own directions — the same way island animals today (like on
+                Madagascar or Australia) end up totally unique.
+            </p>
+
+            <div class="diagram-wrap">
+                <!-- Simplified "before / after" Pangaea break-up sketch -->
+                <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img"
+                     aria-label="Simplified diagram of Pangaea breaking apart into separate continents">
+                    <text x="160" y="20" text-anchor="middle" font-family="Arial" font-size="13" fill="#2f2313">One landmass (Pangaea)</text>
+                    <ellipse cx="160" cy="100" rx="110" ry="60" fill="#c8a45e" stroke="darkolivegreen" stroke-width="3"/>
+
+                    <text x="360" y="100" text-anchor="middle" font-family="Arial" font-size="22" fill="darkolivegreen">➜</text>
+
+                    <text x="540" y="20" text-anchor="middle" font-family="Arial" font-size="13" fill="#2f2313">Separate continents</text>
+                    <ellipse cx="470" cy="90" rx="45" ry="30" fill="#c8a45e" stroke="darkolivegreen" stroke-width="3"/>
+                    <ellipse cx="560" cy="120" rx="35" ry="25" fill="#c8a45e" stroke="darkolivegreen" stroke-width="3"/>
+                    <ellipse cx="620" cy="70" rx="30" ry="22" fill="#c8a45e" stroke="darkolivegreen" stroke-width="3"/>
+                    <ellipse cx="500" cy="150" rx="28" ry="20" fill="#c8a45e" stroke="darkolivegreen" stroke-width="3"/>
+                </svg>
+            </div>
+
+            <p class="fun-fact">
+                <strong>Fun fact:</strong> This is a big part of why T. rex fossils only turn up
+                in North America and Asia — by the time it existed, the continents had already
+                drifted apart, so it never had the chance to spread everywhere.
+            </p>
+        </section>
+
+        <!-- ============ CRETACEOUS PERIOD ============ -->
+        <section id="cretaceous">
+            <h2>🌸 The Cretaceous Period</h2>
+            <p>
+                By the Cretaceous, dinosaurs had exploded into huge variety: tyrannosaurs,
+                horned ceratopsians, duck-billed hadrosaurs, armored ankylosaurs, and many more
+                groups all lived at the same time across the planet.
+            </p>
+            <p>
+                This was also when flowering plants first became common. That mattered a lot —
+                it changed entire ecosystems and gave herbivorous dinosaurs a whole new menu
+                to evolve alongside.
+            </p>
+            <p class="fun-fact">
+                <strong>Fun fact:</strong> The Cretaceous Period is named after "creta," the
+                Latin word for chalk — a lot of the chalky rock layers geologists use to study
+                this era (like England's white cliffs) formed from the period's marine life.
+            </p>
+        </section>
+
+        <!-- ============ END OF THE DINOSAURS ============ -->
+        <section id="extinction">
+            <h2>☄️ The End of the Dinosaurs</h2>
+            <figure>
+                <img class="large-image"
+                     src="https://www.savalli.us/BIO370/Anatomy/AnatomyImages/TriceratopsSkeletonLabel.jpg"
+                     alt="Labeled Triceratops skeleton">
+                <figcaption>Fossils like this let scientists study animals that lived millions of years ago.</figcaption>
+            </figure>
+            <p>
+                About 66 million years ago, a massive asteroid impact (plus, many scientists
+                believe, huge volcanic activity happening around the same time) triggered an
+                extinction event that wiped out most dinosaur groups within a relatively short
+                time, geologically speaking.
+            </p>
+            <p>
+                But here's the twist worth remembering: birds survived. Birds are actually
+                descended from a group of two-legged, meat-eating dinosaurs called theropods
+                (the same family T. rex belongs to). So next time a pigeon walks by — you're
+                technically looking at a dinosaur.
+            </p>
+        </section>
+
+        <!-- ============ QUICK QUIZ (interactive) ============ -->
+        <section id="quiz">
+            <h2>🧠 Quick Quiz — Click to Reveal</h2>
+            <p>Test yourself on what you just read. Click a question to flip it open.</p>
+
+            <!--
+                Each .reveal-card starts closed. When you click one, the tiny script at
+                the bottom of the page toggles a class called "open" on it — and the CSS
+                rule .reveal-card.open .answer { display: block; } is what actually makes
+                the answer appear. This pattern (JS toggles a class, CSS reacts to the
+                class) is one of the most common tricks in real websites.
+            -->
+            <div class="reveal-card">
+                <div class="prompt">Which modern animals are direct descendants of dinosaurs?</div>
+                <div class="answer">Birds! They evolved from theropod dinosaurs, the same group T. rex belongs to.</div>
+            </div>
+            <div class="reveal-card">
+                <div class="prompt">Was a Pterosaur technically a dinosaur?</div>
+                <div class="answer">No — pterosaurs were flying reptiles, a separate group that lived alongside dinosaurs.</div>
+            </div>
+            <div class="reveal-card">
+                <div class="prompt">What supercontinent did early dinosaurs live on?</div>
+                <div class="answer">Pangaea — one giant connected landmass, before it slowly broke apart.</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <p>🦖 Lost World — Exploring Earth's Prehistoric Past</p>
+        <p>Made while learning HTML, CSS &amp; a little JavaScript</p>
+    </footer>
+
+    <!--
+        =====================================================
+        A LITTLE JAVASCRIPT
+        =====================================================
+        This is the only JS on the page, and it does one simple job:
+        when a .reveal-card is clicked, toggle its "open" class on/off.
+
+        Breaking down each line for you:
+        - document.querySelectorAll(...) finds EVERY element matching
+          that CSS selector and gives you back a list of them.
+        - .forEach(card => { ... }) runs the code inside once for each
+          card in that list.
+        - card.addEventListener("click", ...) says "when this specific
+          card is clicked, run this function."
+        - card.classList.toggle("open") adds the "open" class if it's
+          missing, or removes it if it's already there — that's what
+          makes clicking work like a light switch (on, off, on, off).
+    -->
+    <script>
+        document.querySelectorAll(".reveal-card").forEach(function (card) {
+            card.addEventListener("click", function () {
+                card.classList.toggle("open");
+            });
+        });
+    </script>
+
+</body>
+</html>

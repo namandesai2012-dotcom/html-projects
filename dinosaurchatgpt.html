@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!--
+        This makes the website display properly on phones,
+        tablets, and computers.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lost World | Dinosaur Website</title>
+
+    <style>
+
+        /*
+            ================================
+            1. BASIC PAGE STYLING
+            ================================
+
+            Instead of putting style="..." on every element,
+            we can keep our CSS here.
+
+            This is easier to maintain as the website gets bigger.
+        */
+
+        body {
+            margin: 0;
+            background-color: burlywood;
+
+            /*
+                This controls the default font for the whole page.
+                Individual headings can have their own fonts.
+            */
+            font-family: Arial, sans-serif;
+
+            /*
+                Controls the space between lines of text.
+                1.6 makes paragraphs easier to read.
+            */
+            line-height: 1.6;
+        }
+
+
+        /*
+            ================================
+            2. HEADER
+            ================================
+        */
+
+        header {
+            background-color: chocolate;
+            text-align: center;
+
+            /*
+                Padding creates space INSIDE the element.
+            */
+            padding: 20px;
+        }
+
+
+        /*
+            We created a class called .title.
+
+            A class starts with a dot in CSS.
+
+            HTML:
+                class="title"
+
+            CSS:
+                .title
+        */
+
+        .title {
+            color: darkolivegreen;
+            font-family: cursive;
+            margin: 0;
+        }
+
+
+        .subtitle {
+            color: white;
+            margin-bottom: 0;
+        }
+
+
+        /*
+            ================================
+            3. NAVIGATION
+            ================================
+        */
+
+        nav {
+            background-color: darkolivegreen;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+        /*
+            This styles links inside the navigation.
+
+            a = anchor/link
+        */
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            /*
+                Gives each link some space.
+            */
+            margin: 0 10px;
+
+            font-weight: bold;
+        }
+
+
+        /*
+            :hover is a pseudo-class.
+
+            It changes the link when the mouse
+            moves over it.
+        */
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+
+        /*
+            ================================
+            4. MAIN CONTENT
+            ================================
+        */
+
+        main {
+            max-width: 1000px;
+
+            /*
+                margin: auto centers the element
+                horizontally.
+            */
+            margin: auto;
+
+            /*
+                Padding keeps the content away
+                from the edges.
+            */
+            padding: 20px;
+        }
+
+
+        /*
+            ================================
+            5. SECTIONS
+            ================================
+        */
+
+        section {
+            background-color: wheat;
+
+            /*
+                Padding = space inside.
+                Margin = space outside.
+            */
+            padding: 20px;
+            margin: 30px 0;
+
+            /*
+                border creates a line around the section.
+            */
+            border: 2px solid darkolivegreen;
+
+            /*
+                Makes the corners rounded.
+            */
+            border-radius: 10px;
+
+            /*
+                Adds a small shadow around the box.
+            */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /*
+            ================================
+            6. SECTION HEADINGS
+            ================================
+        */
+
+        section h2 {
+            color: darkolivegreen;
+            font-family: cursive;
+        }
+
+
+        /*
+            ================================
+            7. DINOSAUR TABLE
+            ================================
+        */
+
+        .dinosaur-table {
+            width: 100%;
+
+            /*
+                border-collapse makes the table
+                borders look like one continuous border.
+            */
+            border-collapse: collapse;
+
+            background-color: white;
+        }
+
+
+        /*
+            We are styling BOTH table headings
+            and table cells here.
+        */
+
+        .dinosaur-table th,
+        .dinosaur-table td {
+            border: 2px solid darkolivegreen;
+
+            /*
+                Adds space inside each cell.
+            */
+            padding: 10px;
+
+            text-align: center;
+        }
+
+
+        /*
+            Styling the table headings separately.
+        */
+
+        .dinosaur-table th {
+            background-color: darkolivegreen;
+            color: white;
+        }
+
+
+        /*
+            This makes every second row slightly
+            different.
+
+            This is called a pseudo-class.
+        */
+
+        .dinosaur-table tr:nth-child(even) {
+            background-color: beige;
+        }
+
+
+        /*
+            ================================
+            8. IMAGES
+            ================================
+        */
+
+        .dinosaur-image {
+            width: 140px;
+
+            /*
+                max-width prevents the image from
+                becoming wider than its container.
+            */
+            max-width: 100%;
+
+            border-radius: 8px;
+        }
+
+
+        /*
+            The large images use a different class.
+        */
+
+        .large-image {
+            width: 500px;
+            max-width: 100%;
+
+            border-radius: 10px;
+        }
+
+
+        /*
+            ================================
+            9. FIGURE
+            ================================
+
+            figure groups an image and its caption.
+        */
+
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+
+        figcaption {
+            font-style: italic;
+            color: #555;
+        }
+
+
+        /*
+            ================================
+            10. FOOTER
+            ================================
+        */
+
+        footer {
+            background-color: darkolivegreen;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!--
+        ========================================
+        HEADER
+        ========================================
+
+        <header> represents the top section
+        of a webpage.
+
+        It usually contains the website title,
+        logo, introduction, etc.
+    -->
+
+    <header>
+
+        <h1 class="title">Lost World 🦖</h1>
+
+        <p class="subtitle">
+            Explore the fascinating world of dinosaurs
+        </p>
+
+    </header>
+
+
+    <!--
+        ========================================
+        NAVIGATION
+        ========================================
+
+        These links use IDs to jump to different
+        parts of the same webpage.
+
+        Example:
+
+        href="#dinosaurs"
+
+        jumps to:
+
+        id="dinosaurs"
+    -->
+
+    <nav>
+
+        <a href="#dinosaurs">Dinosaurs</a>
+
+        <a href="#fossils">Fossils</a>
+
+        <a href="#beginning">Beginning</a>
+
+        <a href="#world">Spread</a>
+
+        <a href="#cretaceous">Cretaceous</a>
+
+        <a href="#extinction">Extinction</a>
+
+    </nav>
+
+
+    <!--
+        ========================================
+        MAIN CONTENT
+        ========================================
+
+        <main> contains the main content
+        of the webpage.
+    -->
+
+    <main>
+
+
+        <!-- ===================================
+             FEATURED DINOSAURS
+             =================================== -->
+
+        <section id="dinosaurs">
+
+            <h2>🦖 Featured Dinosaurs</h2>
+
+            <!--
+                <table> is used for displaying
+                information in rows and columns.
+
+                <caption> gives the table a title.
+
+                <thead> = table heading area
+                <tbody> = table body
+            -->
+
+            <table class="dinosaur-table">
+
+                <caption>
+                    Some Famous Prehistoric Animals
+                </caption>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>Dinosaur / Animal</th>
+
+                        <th>Diet</th>
+
+                        <th>Period</th>
+
+                        <th>Image</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Tyrannosaurus Rex
+                        </td>
+
+                        <td>
+                            Carnivore
+                        </td>
+
+                        <td>
+                            Cretaceous
+                        </td>
+
+                        <td>
+
+                            <!--
+                                alt describes the image.
+
+                                It is important for accessibility
+                                and also helps if the image fails
+                                to load.
+                            -->
+
+                            <img
+                                class="dinosaur-image"
+                                src="https://preview.redd.it/is-having-tyrannosaurus-as-your-favorite-dinosaur-looked-v0-01aksr49o0zd1.jpeg?auto=webp&s=a3f633bf5c91b3886d86a7f213165162ea19e19f"
+                                alt="Tyrannosaurus rex"
+                            >
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Triceratops
+                        </td>
+
+                        <td>
+                            Herbivore
+                        </td>
+
+                        <td>
+                            Cretaceous
+                        </td>
+
+                        <td>
+
+                            <img
+                                class="dinosaur-image"
+                                src="https://news.artnet.com/app/news-upload/2025/09/cera-triceratops-phillips-0-1024x576.jpg"
+                                alt="Triceratops"
+                            >
+
+                        </td>
+
+                    </tr>
+
+
+                    <!--
+                        IMPORTANT LEARNING NOTE:
+
+                        Pterodactyl is not technically a dinosaur.
+
+                        It belongs to a group of flying reptiles
+                        called pterosaurs.
+
+                        Keeping this row teaches us that
+                        "prehistoric animal" and "dinosaur"
+                        are not always the same thing.
+                    -->
+
+                    <tr>
+
+                        <td>
+                            Pterosaur
+                        </td>
+
+                        <td>
+                            Carnivore
+                        </td>
+
+                        <td>
+                            Jurassic
+                        </td>
+
+                        <td>
+
+                            <img
+                                class="dinosaur-image"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpLv-08GfvrgECt6zWNEO1whJMmFKwp8seTPSBlocDCfgjEmZhF6ZIUa8J&s=10"
+                                alt="Pterosaur"
+                            >
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- ===================================
+             FOSSILS
+             =================================== -->
+
+        <section id="fossils">
+
+            <h2>🦴 Dinosaur Fossils</h2>
+
+
+            <figure>
+
+                <img
+                    class="large-image"
+                    src="https://www.centreofexcellence.com/media/image/1f/22/1e94f372fea773b6cdde7e47e914.jpeg"
+                    alt="Dinosaur fossil"
+                >
+
+                <figcaption>
+                    Fossils can preserve much more than dinosaur bones.
+                </figcaption>
+
+            </figure>
+
+
+            <p>
+                Dinosaur fossils are more than just bones.
+                Scientists have also discovered fossilized skin,
+                scales, feathers, organs, and other soft tissues.
+                These discoveries give scientists clues about
+                what dinosaurs looked like and how their bodies worked.
+            </p>
+
+
+            <p>
+                Some fossils have even preserved evidence of
+                dinosaur colors. Scientists have studied tiny
+                structures called melanosomes, which can help
+                reveal the colors of feathers and scales.
+            </p>
+
+
+            <p>
+                Scientists have also discovered fossils containing
+                parts of internal organs. These rare discoveries
+                help scientists understand dinosaurs in much
+                greater detail.
+            </p>
+
+        </section>
+
+
+
+        <!-- ===================================
+             BEGINNING OF DINOSAURS
+             =================================== -->
+
+        <section id="beginning">
+
+            <h2>🌋 The Beginning of Dinosaurs</h2>
+
+            <p>
+                Dinosaurs first appeared during the Triassic Period,
+                roughly 230 million years ago. They evolved from
+                earlier archosaur ancestors and were initially
+                small animals, many of which walked on two legs.
+            </p>
+
+            <p>
+                At first, dinosaurs were not the dominant animals
+                on Earth. They lived alongside many other reptiles
+                and early animals. Over millions of years, dinosaurs
+                became more successful and diversified into many
+                different groups.
+            </p>
+
+        </section>
+
+
+
+        <!-- ===================================
+             DINOSAURS AROUND THE WORLD
+             =================================== -->
+
+        <section id="world">
+
+            <h2>🌎 Dinosaurs Spread Around the World</h2>
+
+            <p>
+                During the early part of the dinosaur age,
+                Earth's continents were joined together as a giant
+                landmass called Pangaea. This allowed animals to
+                spread across large areas.
+            </p>
+
+            <p>
+                As Pangaea slowly broke apart, dinosaur groups in
+                different parts of the world began to evolve in
+                different ways.
+            </p>
+
+            <p>
+                North America, South America, Asia, Africa, Europe,
+                and Australia each developed their own unique
+                dinosaur communities.
+            </p>
+
+        </section>
+
+
+
+        <!-- ===================================
+             CRETACEOUS PERIOD
+             =================================== -->
+
+        <section id="cretaceous">
+
+            <h2>🌸 The Cretaceous Period</h2>
+
+            <p>
+                During the Cretaceous Period, dinosaurs became
+                extremely diverse. Tyrannosaurs, ceratopsians,
+                hadrosaurs, ankylosaurs, and many other groups
+                lived across the planet.
+            </p>
+
+            <p>
+                Flowering plants also became increasingly common
+                during this time, changing the environments where
+                dinosaurs lived and providing new food sources
+                for herbivores.
+            </p>
+
+        </section>
+
+
+
+        <!-- ===================================
+             END OF THE DINOSAURS
+             =================================== -->
+
+        <section id="extinction">
+
+            <h2>☄️ The End of the Dinosaurs</h2>
+
+            <figure>
+
+                <img
+                    class="large-image"
+                    src="https://www.savalli.us/BIO370/Anatomy/AnatomyImages/TriceratopsSkeletonLabel.jpg"
+                    alt="Labeled Triceratops skeleton"
+                >
+
+                <figcaption>
+                    Dinosaur fossils allow scientists to study
+                    animals that lived millions of years ago.
+                </figcaption>
+
+            </figure>
+
+
+            <p>
+                About 66 million years ago, a major extinction event
+                occurred at the end of the Cretaceous Period.
+                Most dinosaur groups disappeared.
+            </p>
+
+
+            <p>
+                However, birds survived. Modern birds are descendants
+                of theropod dinosaurs. In this sense, dinosaurs are
+                not completely gone—they still live among us today
+                in the form of birds.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!--
+        ========================================
+        FOOTER
+        ========================================
+
+        <footer> normally contains information
+        such as copyright, credits, or links.
+    -->
+
+    <footer>
+
+        <p>
+            🦖 Lost World — Exploring Earth's Prehistoric Past
+        </p>
+
+        <p>
+            Made while learning HTML & CSS
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

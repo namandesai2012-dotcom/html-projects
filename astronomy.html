@@ -1,0 +1,302 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Solar System</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background-color: #050510;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .site-header {
+         background: linear-gradient(180deg, #04040c 0%, #0a0f2c 60%, #050510 100%);
+            border-bottom: 2px solid #b3122b;
+            padding: 18px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Stars */
+        .site-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image:
+            radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+            radial-gradient(2px 2px at 120px 60px, #6fa8ff, transparent),
+            radial-gradient(1px 1px at 250px 20px, #ffffff, transparent),
+            radial-gradient(2px 2px at 340px 50px, #6fa8ff, transparent),
+            radial-gradient(1px 1px at 420px 15px, #ffffff, transparent),
+            radial-gradient(2px 2px at 500px 40px, #ffffff, transparent);
+
+            background-size: 550px 80px;
+
+            animation: twinkle 4s ease-in-out infinite alternate;
+
+            opacity: 0.6;
+
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+
+            from {
+                opacity: 0.3;
+            }
+
+            to {
+                opacity: 0.8;
+            }
+
+        }
+
+        nav {
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Main content */
+
+        main {
+            width: 80%;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h2 {
+            margin-top: 45px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <header class="site-header">
+
+        <nav>
+            <ul>
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#links">Links</a></li>
+
+                <li><a href="#contact">Contact Us</a></li>
+
+                <li><a href="#research">Research</a></li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <h1>Our Solar System</h1>
+
+
+        <h2>A Vast Cosmic Neighborhood</h2>
+
+        <p>
+            Our solar system is made up of the Sun, eight planets,
+            five officially recognized dwarf planets, hundreds of moons,
+            and thousands of asteroids and comets.
+        </p>
+
+        <p>
+            It is located in the Milky Way, a barred spiral galaxy.
+            The Sun lies in a smaller section of the galaxy called the
+            Orion Arm, or Orion Spur. Our solar system travels around
+            the center of the Milky Way at about 515,000 miles per hour.
+            Even at that incredible speed, it takes roughly 230 million
+            years to complete one trip around the galaxy.
+        </p>
+
+
+        <h2>Why Is It Called the Solar System?</h2>
+
+        <p>
+            The name solar system comes from the Latin word
+            <i>solis</i>, meaning Sun. The word "solar" refers to
+            anything connected to our Sun, which is the central star
+            of our planetary system.
+        </p>
+
+
+        <h2>Could There Be Life Beyond Earth?</h2>
+
+        <p>
+            So far, Earth is the only world where we know life exists.
+            However, scientists continue to explore our solar system
+            and planets around other stars in the search for signs of life.
+        </p>
+
+        <p>
+            Discovering life beyond Earth would help scientists understand
+            how common life might be throughout the universe.
+        </p>
+
+
+        <h2>The Outer Reaches of the Solar System</h2>
+
+        <p>
+            The solar system extends far beyond the planets. Past Neptune
+            lies the Kuiper Belt, a region filled with countless icy objects.
+            Pluto, one of the best-known dwarf planets, is located in this
+            distant region.
+        </p>
+
+        <p>
+            Farther away is the Oort Cloud, a huge spherical shell of icy
+            objects surrounding the solar system. Scientists have never
+            directly observed the Oort Cloud, but its existence is supported
+            by mathematical models and observations of comets that may come
+            from this distant region.
+        </p>
+
+        <p>
+            The Oort Cloud may extend as far as 1.6 light-years from the Sun.
+            One astronomical unit, or AU, is the average distance between
+            Earth and the Sun, about 93 million miles.
+        </p>
+
+
+        <h2>The Sun's Protective Bubble</h2>
+
+        <p>
+            The Sun constantly releases a stream of electrically charged
+            particles called the solar wind. This creates a huge bubble
+            around the solar system called the heliosphere.
+        </p>
+
+        <p>
+            The solar wind eventually encounters material between the stars
+            and slows dramatically. This boundary is called the termination
+            shock, located roughly 80 to 100 astronomical units from the Sun.
+        </p>
+
+        <p>
+            The Voyager spacecraft have traveled beyond this boundary.
+            Voyager 1 crossed it in 2004, while Voyager 2 crossed it in 2007.
+            Voyager 1 entered interstellar space in 2012, followed by
+            Voyager 2 in 2018.
+        </p>
+
+
+        <h2>Moons Across the Solar System</h2>
+
+        <p>
+            Hundreds of moons orbit planets, dwarf planets, and even
+            asteroids throughout our solar system. Among the eight planets,
+            Mercury and Venus are the only planets without moons.
+        </p>
+
+        <p>
+            The gas giants Jupiter and Saturn have especially large
+            collections of moons. Their systems of moons can almost
+            resemble miniature planetary systems.
+        </p>
+
+        <p>
+            Even the dwarf planet Pluto has five known moons. Its largest
+            moon, Charon, is so large compared with Pluto that their
+            gravitational interaction causes Pluto to wobble as they
+            orbit each other.
+        </p>
+
+
+        <h2>How Did the Solar System Form?</h2>
+
+        <p>
+            The solar system formed approximately 4.6 billion years ago
+            from a massive cloud of gas and dust. The cloud collapsed,
+            possibly after being disturbed by a nearby exploding star
+            called a supernova.
+        </p>
+
+        <p>
+            As the material collapsed, it formed a rotating disk known
+            as the solar nebula. Gravity pulled more and more material
+            toward the center.
+        </p>
+
+        <p>
+            Eventually, the pressure and temperature became high enough
+            for hydrogen atoms to fuse together and form helium. This
+            nuclear reaction released enormous amounts of energy and
+            marked the birth of the Sun.
+        </p>
+
+        <p>
+            Farther from the center, pieces of dust and rock collided
+            and joined together. Over time, these objects became larger
+            and eventually formed planets, dwarf planets, moons,
+            asteroids, and comets.
+        </p>
+
+
+        <h2>The Four Rocky Planets</h2>
+
+        <p>
+            The planets closest to the Sun are Mercury, Venus, Earth,
+            and Mars. They are known as terrestrial planets because
+            they have solid, rocky surfaces.
+        </p>
+
+        <p>
+            When the solar system was young, the intense heat near the
+            Sun prevented many lighter materials from remaining there.
+            As a result, the inner planets became relatively small
+            and rocky.
+        </p>
+
+
+        <h2>The Giant Planets</h2>
+
+        <p>
+            Farther from the Sun, temperatures were cold enough for
+            gases and icy materials to remain. Gravity gathered these
+            materials into the large outer planets.
+        </p>
+
+        <p>
+            Jupiter and Saturn became gas giants, while Uranus and
+            Neptune became ice giants. Together, these four enormous
+            planets form the outer planetary region of our solar system.
+        </p>
+
+    </main>
+</body>
+</html>
+```
