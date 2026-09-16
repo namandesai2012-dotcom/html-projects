@@ -1,0 +1,84 @@
+:root {
+    --color-bg: #e8ebe9;
+    --color-surface: #FFFFFF;
+    --color-primary: #2B6E63;
+    --color-primary-dark: #1F5049;
+    --color-text: #1E2422;
+    --color-text-muted: #5B6663;
+    --color-border: #DCE3E0;
+    
+
+    --font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
+
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.75rem;
+    --space-x1: 2.5rem;
+
+    --radius:6px;
+
+}
+body {
+    font-family:var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.5;
+    padding: var(--space-x1) var(--space-md);
+}
+h1{
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+form{
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: var(--space-x1);
+    box-shadow: 0 1px 3px rgba(14, 11, 11, 0.04);
+}
+
+fieldset {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-lg)0 0 0;
+    margin-bottom: var(--space-lg);
+    
+}
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap:0.4rem;
+
+}
+.submit-btn{
+    display:inline-block;
+    background: var(--color-primary);
+    color: white;
+    font-family: inherit;
+    font-size:0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.75rem 1.5rem;
+    cursor : pointer;
+    transition: background 0.15 ease;
+}
+
+.field {
+    margin-bottom: var(--space-md);
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: var(--space-sm)
+}

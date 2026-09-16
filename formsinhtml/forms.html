@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <h1>My Doctors Appointment</h1>
+  <h1>Doctors Appointment</h1>
   <p>Fill in the form below to book your appointment!</p>
  
   <hr>
@@ -21,10 +22,13 @@
 
         <label>Patient ID</label><br>
         <input type="password" id="pid" placeholder="Your secret ID"><br><br>
-        
-        <label>Date of Birth</label><br>
+     
+        <div class="field">
+            <label>Date of Birth</label><br>
          <input type="date" id="dob"><br>
-        <select id="doctor"
+        </div>
+        
+        
     </fieldset>
 
         <br>
@@ -32,23 +36,40 @@
         <fieldset>
             <legend>Your Visit</legend>
             <label>Choose Your Doctor</label><br>
+            <select id="doctor">
             <option value="">--Select a Doctor--</option>
             <option value="Dr-Ray">Dr.Ray - General</option>
             <option value="Dr-Lee">Dr.Lee - Teeth</option>
             <option value="Dr-Sam">Dr.Sam - Eyes</option>
                 </select><br><br>
-       
                 <lable>Why are you visiting?</lable><br>
-                <input type="radio" name="reason" value="fever"> Fever<br>
-                <input type="radio" name="reason" value="Cold"> Cold<br>
-                <input type="radio" name="reason" value="Checkup"> Checkup<br>
-                <input type="radio" name="reason" value="tooth"> Tooth Pain<br>
+                <input type="radio" class="radio-option" name="reason" value="fever"> Fever<br>
+                <input type="radio" class="radio-option" name="reason" value="Cold"> Cold<br>
+                <input type="radio" class="radio-option" name="reason" value="Checkup"> Checkup<br>
+                <input type="radio" class="radio-option" name="reason" value="tooth"> Tooth Pain<br>
 
+             <div class="field" >
                 <lable>Any Notes for the Doctor</lable><br>
                 <textarea id="notes" rows="3" cols="35"placeholder="e.g. I had sore throat for 2 days"></textarea><br>
+             </div>  
+                
             
             </fieldset>
+            <br>
+            <fieldset>
+                <legend>Preferred Visit Day</legend>
+                <input type="checkbox" value="mon"> Monday<br>
+                <input type="checkbox" value="wed"> Wednesday<br>
+                <input type="checkbox" value="fri"> Friday<br>
+            </fieldset>
 
+            <br>
+            <a href="https://www.nm.org/patients-and-visitors/appointments">
+                <button type="submit" class="submit-btn" value="Book My Appointment">
+                    Book My Appointment
+                </button>
+            </a>
+            
   </form>
 
 </body>
