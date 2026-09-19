@@ -35,7 +35,7 @@ form{
     border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: var(--space-x1);
-    box-shadow: 0 1px 3px rgba(14, 11, 11, 0.04);
+    box-shadow: 0 1px 3px rgba(255, 0, 0, 0.04);
 }
 
 fieldset {
